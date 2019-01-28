@@ -5,6 +5,5 @@ package.json
 package-lock.json
 
 config.js
-.test.js
 
 example-stripe.js
