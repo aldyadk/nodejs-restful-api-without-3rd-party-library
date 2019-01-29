@@ -4,14 +4,18 @@ const cli = require("./lib/cli");
 
 const app = {};
 
-app.init = function() {
+app.init = function(cb) {
   server.init();
   workers.init();
   setTimeout(function() {
     cli.init();
+    cb();
   }, 50);
 };
 
-app.init();
+//self invoked only if required directly
+if (require.main === module) {
+  app.init(function() {});
+}
 
 module.exports = app;
